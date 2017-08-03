@@ -1,4 +1,4 @@
-#**Behavioral Cloning** 
+# **Behavioral Cloning** 
 
 ---
 
@@ -21,12 +21,12 @@ The goals / steps of this project are the following:
 [image7]: ./examples/placeholder_small.png "Flipped Image"
 
 ## Rubric Points
-###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
+### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
 
 ---
-###Files Submitted & Code Quality
+### Files Submitted & Code Quality
 
-####1. Submission includes all required files and can be used to run the simulator in autonomous mode
+#### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
 
 My project includes the following files:
 * model.py containing the script to create and train the model
@@ -34,49 +34,49 @@ My project includes the following files:
 * model.h5 containing a trained convolution neural network 
 * writeup_report.md or writeup_report.pdf summarizing the results
 
-####2. Submission includes functional code
+#### 2. Submission includes functional code
 Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
 ```sh
 python drive.py model.h5
 ```
 
-####3. Submission code is usable and readable
+#### 3. Submission code is usable and readable
 
 The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 
-###Model Architecture and Training Strategy
+### Model Architecture and Training Strategy
 
-####1. An appropriate model architecture has been employed
+#### 1. An appropriate model architecture has been employed
 
 My model consists of a convolution neural network with 5x5 filter sizes and 3 convolution layers of depths 16,24,32 (model.py lines 66,72,78), each followed by a max pooling layer (code line 69,75,81). 
 
-####2. Process the input image
+#### 2. Process the input image
 
 The image is cropped with a Keras Crop2D layer (code line 62). It is then normalized using a Keras lambda layer (code line 63).
 
-####3. Using the right activation function
+#### 3. Using the right activation function
 
 The model uses Leaky RELU as activation of convolutional layers (code line 67,73,79). The leaky alpha is set to 0.1 to give it a hint of leak (code line 18,65,71,77). 
 
-####4. Attempts to reduce overfitting in the model
+#### 4. Attempts to reduce overfitting in the model
 
 The model contains dropout layers in order to reduce overfitting (code line 68,74,80). The dropout rate was set to 0.2 (code line 17).
 
 The model was trained and validated on different data sets to ensure that the model was not overfitting. The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
-####5. Optimizer
+#### 5. Optimizer
 
 The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 89).
 
-####6. Appropriate training data
+#### 6. Appropriate training data
 
 Training data was chosen to keep the vehicle driving on the road. I used  center lane driving, driving clock and driving multiply laps to obtain the data. 
 
 For details about how I created the training data, see the next section. 
 
-###Model Architecture and Training Strategy
+### Model Architecture and Training Strategy
 
-####1. Solution Design Approach
+#### 1. Solution Design Approach
 
 The overall strategy for deriving a model architecture was to experiment with different convolutional, activation and dropout layers.
 
@@ -94,7 +94,7 @@ So I tuned the dropout rates from 0.8 down to 0.5, then all the way down to 0.2.
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
-####2. Final Model Architecture
+#### 2. Final Model Architecture
 
 The final model architecture consisted of a convolution neural network with the following layers and layer sizes.
 
@@ -143,7 +143,7 @@ _________________________________________________________________
 8. Dense | Output Shape = (None, 1)
 _________________________________________________________________
 
-####3. Creation of the Training Set & Training Process
+#### 3. Creation of the Training Set & Training Process
 
 To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
 
